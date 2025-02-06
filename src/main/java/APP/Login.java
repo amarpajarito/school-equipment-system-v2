@@ -25,7 +25,7 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null); 
         setTitle("SEAM Login"); 
         setResizable(false);
-        ImageIcon icon = new ImageIcon("src/main/java/IMAGES/ssulogo.png");
+        ImageIcon icon = new ImageIcon("IMAGES/ssulogo.png");
         setIconImage(icon.getImage());
     }
     
@@ -105,7 +105,7 @@ public class Login extends javax.swing.JFrame {
         JLabel3.setText("SCHOOL EQUIPMENT ACQUISITION & MONITORING SYSTEM");
         JLabel3.setToolTipText("");
 
-        jCheckBox1.setText("Show Password");
+        jCheckBox1.setText("Show password");
         jCheckBox1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jCheckBox1ItemStateChanged(evt);
@@ -237,7 +237,7 @@ public class Login extends javax.swing.JFrame {
     private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-        performLogin(); // Call the login method
+        performLogin(); 
         }
     }//GEN-LAST:event_passwordKeyPressed
 
