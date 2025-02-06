@@ -210,7 +210,6 @@ public class ManageEquipments extends javax.swing.JFrame {
         Connection conn = connect.getConnection();
         Statement stmt = conn.createStatement();
 
-        // Construct the SQL query with filters
         String query = "SELECT * FROM EQUIPMENT WHERE 1=1";
         if (!"All".equals(selectedType)) {
             query += " AND type = '" + selectedType + "'";
@@ -283,6 +282,7 @@ public class ManageEquipments extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -403,7 +403,7 @@ public class ManageEquipments extends javax.swing.JFrame {
         locationBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MKT310 ", "MKT410 ", "MKT501" }));
         locationBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                locationBoxItemStateChanged(evt);
+                typeBoxItemStateChanged(evt);
             }
         });
         jPanel2.add(locationBox);
@@ -418,7 +418,7 @@ public class ManageEquipments extends javax.swing.JFrame {
         conditionBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "New", "Good", "Needs Repair", "For Replacement", "Lost" }));
         conditionBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                conditionBoxItemStateChanged(evt);
+                typeBoxItemStateChanged(evt);
             }
         });
         jPanel6.add(conditionBox);
@@ -485,6 +485,15 @@ public class ManageEquipments extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jButton6);
+
+        jButton2.setBackground(new java.awt.Color(255, 255, 0));
+        jButton2.setText("Show All");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jButton2);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -578,19 +587,10 @@ public class ManageEquipments extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_typeBoxItemStateChanged
 
-    private void locationBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_locationBoxItemStateChanged
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        if (evt.getStateChange() == ItemEvent.SELECTED) {
-            updateFilteredResults();
-        }
-    }//GEN-LAST:event_locationBoxItemStateChanged
-
-    private void conditionBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_conditionBoxItemStateChanged
-        // TODO add your handling code here:
-        if (evt.getStateChange() == ItemEvent.SELECTED) {
-            updateFilteredResults();
-        }
-    }//GEN-LAST:event_conditionBoxItemStateChanged
+        update();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -603,6 +603,7 @@ public class ManageEquipments extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> conditionBox;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
